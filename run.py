@@ -16,15 +16,20 @@ def starting_game():
     print(f"computer choise is: {computer}")
 
 
-def valedating_input(value):
+def valedating_input():
+    """
+    trying for correct value otherwise return Error
+    """
     try:
-        if move in moves = player_input
-        print(f"You chose {player_input}")
-    else:
-        pass
+        if player_input == move in moves:
+            print(f"You chose {player_input}")
+        else:
+            pass
+    except ValueError:
+       print(f"Invalid data input: {player_input}, Please enter r for rock p for paper or s for scissors!")
 
 
-#   except ValueError:
-#        print(f"Invalid data input: {player_input}, Please enter r for rock p for paper or s for scissors!")
 
 starting_game()
+valedating_input()
+
