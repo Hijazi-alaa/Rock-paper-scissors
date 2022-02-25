@@ -19,13 +19,11 @@ def main():
             or (player == "p" and opponent == "r"):
             return True
 
-    try:
-        while True:
+    while True:
+        try:
             available_choices = ["r", "p", "s"]
             player_input = input("Enter your choice: ")
-            # searched for a way to choose one random item from a list and found
-            # the random method at pynative.com
-            computer_choice = random.choice(["r", "p", "s"])
+            computer_choice = random.choice(["r", "p", "s"])  # searched for a way to choose one random item from a list and found the random method at pynative.com
             print(f"computer chose: {computer_choice}")
             if any(player_input in choice for choice in available_choices):
                 print(f"You chose {player_input}")
@@ -38,9 +36,8 @@ def main():
                     print("You lost!")
             else:
                 raise ValueError()
-    except ValueError:
-        print(f"Invalid data input: {player_input}, is not a valid input.\n Please enter r for rock p for paper or s for scissors!")
-
+        except ValueError:
+            print(f"Invalid data input: {player_input}, is not a valid input.\n Please enter r for rock p for paper or s for scissors!")
 
 main()
 
