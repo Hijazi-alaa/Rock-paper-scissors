@@ -6,8 +6,8 @@ def main():
     main function to run the game and include other function inside
     """
     print("Welcome to the game of Rock, paper and scissors.")
-    print("rules: rock beat scissors, \
-     paper beats rock and scissors beats paper.")
+    print("rules: rock beat scissors,\
+    paper beats rock and scissors beats paper.")
     print("Play by entering r for rock, p for paper and s for scissors. \n")
     print("---------------------------------------------------------------")
 
@@ -58,14 +58,7 @@ def main():
     while True:
         try:
             available_choices = ["r", "p", "s"]
-
-            player_input = input("Type in your choice of action, r for rock, \
-            p for paper and s for scissors:\n")
-
-            computer_choice = random.choice(["r", "p", "s"])
-            # searched for a way to choose one random item from a list,
-            # and found the random method at pynative.com
-            print(f"computer chose: {computer_choice}")
+            player_input = input("Type in your choice of action: \n")
 
             win_response = get_random_win_response()
             lose_response = get_random_lose_response()
@@ -75,6 +68,11 @@ def main():
 
             if any(player_input in choice for choice in available_choices):
                 print(f"You chose {player_input} \n")
+
+                computer_choice = random.choice(["r", "p", "s"])
+                # searched for a way to choose one random item from a list,
+                # and found the random method at pynative.com
+                print(f"computer chose: {computer_choice}")
 
                 is_winner(player_input, computer_choice)
                 if player_input == computer_choice:
