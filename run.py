@@ -1,14 +1,42 @@
 import random
 
 
+
 def main():
     """
     main function to run the game and include other function inside
     """
 
-    print("Welcome to the game of Rock, paper and scissors.\n")
-    print("rules: rock beat scissors, paper beats rock and scissors beats paper. \n")
-    print("Play by entering r for rock, p for paper and s for scissors.")
+    print("Welcome to the game of Rock, paper and scissors.")
+    print("rules: rock beat scissors, paper beats rock and scissors beats paper.")
+    print("Play by entering r for rock, p for paper and s for scissors. \n")
+    print("-------------------------------------------------------------------------")
+
+
+    def get_user_player_name():
+        """
+        function to get the user user name
+        """
+        username = input("Enter a username to start: \n")
+        return username
+
+
+    def get_random_win_response():
+        """
+        select a random win response from a list
+        """
+        list_of_win_responses = ["Nice!", "Good Job!", "That's one point!", "A win!, can you do it again?", "Wow! you are good at this game."]
+        random.choice(list_of_win_responses)
+
+
+    def get_random_lose_response():
+        """
+        select a random lose response from a list
+        """
+        list_of_lose_responses = ["Better luck next time!", "You'll get it right the next time!", "Opsie", "Im' sure you'll win at some point", "Try again!"]
+        random.choice(list_of_lose_responses)
+
+
 
    
     def is_winner(player, opponent):
@@ -21,31 +49,41 @@ def main():
             return True
 
 
+
     player_score = 0
     computer_score = 0
+    
+
+    username = get_user_player_name()
+    print(f"Welcome {username}, good luck! \n")
+
+    win_response = get_random_win_response()
+    lose_response = get_random_lose_response()
 
     while True:
         try:
             available_choices = ["r", "p", "s"]
-            player_input = input("Enter your choice: ")
+            player_input = input("Type in your choice of action, r for rock, p for paper and s for scissors: ")
             computer_choice = random.choice(["r", "p", "s"])
             # searched for a way to choose one random item from a list,
             # and found the random method at pynative.com
             print(f"computer chose: {computer_choice}")
             if any(player_input in choice for choice in available_choices):
-                print(f"You chose {player_input}")
+                print(f"You chose {player_input} \n")
                 is_winner(player_input, computer_choice)
                 if player_input == computer_choice:
                     print("It's a tie")
-                    print(f"Your score: {player_score} \nComputer score: {computer_score}")
+                    print(f"{username} score: {player_score} \nComputer score: {computer_score}")
                 elif is_winner(player_input, computer_choice):
                     print("You won!")
-                    player_score = +1
-                    print(f"Your score: {player_score} \nComputer score: {computer_score}")
+                    print(win_response)
+                    player_score = player_score +1
+                    print(f"{username} score: {player_score} \nComputer score: {computer_score}")
                 elif is_winner(computer_choice, player_input):
                     print("You lost!")
-                    computer_score = +1
-                    print(f"Your score: {player_score} \nComputer score: {computer_score}")
+                    print(lose_response)
+                    computer_score = computer_score +1
+                    print(f"{username} score: {player_score} \nComputer score: {computer_score}")
             else:
                 raise ValueError()
         except ValueError:
