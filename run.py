@@ -47,7 +47,7 @@ def main():
         if (player == "r" and opponent == "s") or \
            (player == "s" and opponent == "p") \
            or (player == "p" and opponent == "r"):
-                return True
+            return True
 
     player_score = 0
     computer_score = 0
